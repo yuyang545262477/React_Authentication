@@ -15,7 +15,7 @@ const authCheck = jwt({
 
 
 // json data
-let contacts = [
+var contacts = [
     {
         id: 1,
         name: 'Chris Sevilleja',
