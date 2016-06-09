@@ -1,5 +1,5 @@
 import React from "react";
-import ContactActions from "../actions/ContactActions";
+import ContactActions from "../actions/ContactAction";
 import ContactStore from "../stores/ContactStore";
 
 class ContactDetailComponent extends React.Component {
