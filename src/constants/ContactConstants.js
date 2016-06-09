@@ -1,8 +1,5 @@
-import keyMirror from "keymirror";
+import KeyMirror from "keymirror";
 
-var KeyMirror = function (param) {
-    return keyMirror(param);
-};
 export default KeyMirror({
     RECEIVE_CONTACT: null,
     RECEIVE_CONTACTS: null,
