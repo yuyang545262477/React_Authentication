@@ -1,9 +1,22 @@
 import React from "react";
-
+import AuthStore from "../stores/AuthStore";
 class IndexComponent extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            authenticated: AuthStore.isAuthenticated()
+        }
+    }
+    
     render() {
         return (
-            <h2>Clink on a contact to view their profile</h2>
+            <div>
+                {!this.state.authenticated ? (
+                    <h2>Log In to View Contact Details</h2>
+                ) : (
+                    <h2> Click on a contact to view their profile</h2>
+                )}
+            </div>
         )
     }
 }

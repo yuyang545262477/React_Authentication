@@ -51,7 +51,9 @@ var contacts = [
 //restFul api
 
 app.get('/api/contacts', (req, res)=> {
-        const allContacts = contacts.map(contact =>({id: contact.id, name: contact.name}));
+        const allContacts = contacts.map(contact => {
+            return {id: contact.id, name: contact.name}
+        });
         res.json(allContacts);
     }
 );

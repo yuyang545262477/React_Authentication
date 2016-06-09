@@ -13,6 +13,7 @@ class AppComponent extends React.Component {
     }
     
     render() {
+        
         return (
             <div>
                 <Header lock={this.lock}></Header>

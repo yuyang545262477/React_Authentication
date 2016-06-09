@@ -7,7 +7,7 @@ class ContactDetailComponent extends React.Component {
     constructor() {
         super();
         this.state = {
-            contact: {}
+            conTact: {}
         };
         this.onChange = this.onChange.bind(this);
     }
@@ -18,6 +18,14 @@ class ContactDetailComponent extends React.Component {
     
     componentDidMount() {
         ContactActions.getContact(this.props.params.id);
+        // this.setState({
+        //     contact: ContactStore.getContact(this.props.params.id)
+        // });
+        // let contact;
+        // if (this.state.contact) {
+        //     contact = this.state.contact[0];
+        // }
+        //
     }
     
     componentWillUnmount() {
@@ -26,33 +34,34 @@ class ContactDetailComponent extends React.Component {
     
     componentWillReceiveProps(nextProps) {
         this.setState({
-            contact: ContactActions.getContact(nextProps.params.id)
+            conTact: ContactActions.getContact(nextProps.params.id)
         });
     }
     
     onChange() {
         this.setState({
-            contact: ContactStore.getContact(this.params.id)
+            conTact: ContactStore.getContact(this.props.params.id)
         });
     }
     
     render() {
-        let contact;
-        if (this.state.contact) {
-            contact = this.state.contact;
-            return (
+        let contact = this.state.conTact;
+        return (
+            <div>
+                { this.state.conTact &&
                 <div>
-                    {this.state.contact &&
-                    <div>
-                        <img src={contact.image} alt="images" width="150"/>
-                        <h1>{contact.name}</h1>
-                        <h3>{contact.email}</h3>
-                    </div>
-                    }
+                    <img src={contact[0].image} width="150"/>
+                    <h1>{contact.name}</h1>
+                    <h3>{contact.email}</h3>
                 </div>
-            )
-        }
+                }
+            </div>
+        );
     }
+    
+    
 }
 
-export default ContactDetailComponent;
+export
+default
+ContactDetailComponent;

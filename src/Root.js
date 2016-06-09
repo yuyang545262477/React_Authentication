@@ -8,9 +8,9 @@ class Root extends React.Component {
     render() {
         return (
             <Router history={this.props.history}>
-                <Route path="/" component={App}>
+                <Route path='/' component={App}>
                     <IndexRoute component={Index}/>
-                    <Route path="/contact/:id" component={ContactDetail}/>
+                    <Route path='/contact/:id' component={ContactDetail}/>
                 </Route>
             </Router>
         )
