@@ -61,5 +61,5 @@ app.get('/api/contacts/:id', authCheck, (req, res)=> {
 });
 
 app.listen(3001);
-console.log('Listen on the website http://localhost:3000');
+console.log('Listen on the website http://localhost:3001');
 
