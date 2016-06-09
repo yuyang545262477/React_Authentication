@@ -1,5 +1,7 @@
 import React from "react";
 import {Nav, Navbar, NavItem, Header, Brand} from "react-bootstrap";
+import AuthActions from "../actions/AuthActions";
+
 class HeaderComponent extends React.Component {
     constructor(props) {
         super(props);
@@ -11,15 +13,17 @@ class HeaderComponent extends React.Component {
     }
     
     login() {
-        this.props.lock.show(err=> {
+        this.props.lock.show((err, profile, token)=> {
             if (err) {
                 return alert(err);
             }
+            AuthActions.logUserIn(profile, token);
             this.setState({authenticated: true});
         });
     }
     
     logout() {
+        AuthActions.logUserOut();
         this.setState({authenticated: false});
     }
     
