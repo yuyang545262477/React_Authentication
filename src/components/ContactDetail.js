@@ -21,7 +21,7 @@ class ContactDetailComponent extends React.Component {
     }
     
     componentWillUnmount() {
-        ContactStore.removeChangeList(this.onChange);
+        ContactStore.removeChangeListener(this.onChange);
     }
     
     componentWillReceiveProps(nextProps) {
@@ -40,14 +40,18 @@ class ContactDetailComponent extends React.Component {
         let contact;
         if (this.state.contact) {
             contact = this.state.contact;
+            return (
+                <div>
+                    {this.state.contact &&
+                    <div>
+                        <img src={contact.image} alt="images" width="150"/>
+                        <h1>{contact.name}</h1>
+                        <h3>{contact.email}</h3>
+                    </div>
+                    }
+                </div>
+            )
         }
-        return (
-            <div>
-                <img src={contact.image} alt="images" width="150"/>
-                <h1>{contact.name}</h1>
-                <h3>{contact.email}</h3>
-            </div>
-        )
     }
 }
 

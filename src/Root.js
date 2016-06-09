@@ -3,7 +3,6 @@ import {Router, Route, IndexRoute} from "react-router";
 import Index from "./components/Index";
 import App from "./components/App";
 import ContactDetail from "./components/ContactDetail";
-// import ContactDetail from "./components/ContactDetail";
 
 class Root extends React.Component {
     render() {

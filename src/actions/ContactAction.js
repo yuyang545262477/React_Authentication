@@ -1,37 +1,37 @@
-import AppDispatcher from '../dispatcher/AppDispatcher';
-import ContactConstants from '../constants/ContactConstants';
-import ContactsAPI from '../utils/ContactsAPI';
+import AppDispatcher from "../dispatcher/AppDispatcher";
+import ContactConstants from "../constants/ContactConstants";
+import ContactsAPI from "../utils/ContactsAPI";
 
 export default {
-    receiveContacts:()=>{
+    receiveContacts: ()=> {
         ContactsAPI
         .getContacts('http://localhost:3001/api/contacts')
-        .then(contacts=>{
+        .then(contacts=> {
             AppDispatcher.dispatch({
-                actionType:ContactConstants.RECEIVE_CONTACTS,
-                contacts:contacts
+                actionType: ContactConstants.RECEIVE_CONTACTS,
+                contacts: contacts
             });
         })
-        .catch(message=>{
+        .catch(message=> {
             AppDispatcher.dispatch({
-                actionType:ContactConstants.RECEIVE_CONTACTS_ERROR,
-                message:message
+                actionType: ContactConstants.RECEIVE_CONTACTS_ERROR,
+                message: message
             });
         });
     },
-    getContact:(id)=>{
+    getContact: (id)=> {
         ContactsAPI
-        .getContact('http://localhost:3001/api/contacts/'+id)
-        .then(contact=>{
+        .getContact('http://localhost:3001/api/contacts/' + id)
+        .then(contact=> {
             AppDispatcher.dispatch({
-                actionType:ContactConstants.RECEIVE_CONTACT,
-                contact:contact
+                actionType: ContactConstants.RECEIVE_CONTACT,
+                contact: contact
             });
         })
-        .catch(message=>{
+        .catch(message=> {
             AppDispatcher.dispatch({
-                actonType:ContactConstants.RECEIVE_CONTACT_ERROR,
-                message:message
+                actonType: ContactConstants.RECEIVE_CONTACT_ERROR,
+                message: message
             });
         });
     }
