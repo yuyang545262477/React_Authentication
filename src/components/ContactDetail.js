@@ -10,22 +10,17 @@ class ContactDetailComponent extends React.Component {
             conTact: {}
         };
         this.onChange = this.onChange.bind(this);
+        
     }
     
     componentWillMount() {
         ContactStore.addChangeListener(this.onChange);
+        console.log('will');
     }
     
     componentDidMount() {
         ContactActions.getContact(this.props.params.id);
-        // this.setState({
-        //     contact: ContactStore.getContact(this.props.params.id)
-        // });
-        // let contact;
-        // if (this.state.contact) {
-        //     contact = this.state.contact[0];
-        // }
-        //
+        console.log('hello');
     }
     
     componentWillUnmount() {
@@ -45,16 +40,19 @@ class ContactDetailComponent extends React.Component {
     }
     
     render() {
-        let contact = this.state.conTact;
         return (
             <div>
-                { this.state.conTact &&
-                <div>
-                    <img src={contact[0].image} width="150"/>
-                    <h1>{contact.name}</h1>
-                    <h3>{contact.email}</h3>
-                </div>
-                }
+                {this.state.conTact ? (
+                    <div>
+                        <p>{window.console.log(this.state.conTact)}</p>
+                        <img src={this.state.conTact.image} width="150"/>
+                        <h1>{this.state.conTact.name}</h1>
+                        <h3>{this.state.conTact.email}</h3>
+                    </div>
+                
+                ) : (
+                    <h1>I not exists</h1>
+                )}
             </div>
         );
     }

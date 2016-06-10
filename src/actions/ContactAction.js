@@ -23,9 +23,10 @@ export default {
         ContactsAPI
         .getContact('http://localhost:3001/api/contacts/' + id)
         .then(contact=> {
+            console.log('Action', contact);
             AppDispatcher.dispatch({
                 actionType: ContactConstants.RECEIVE_CONTACT,
-                contact: contact
+                contact: contact[0]
             });
         })
         .catch(message=> {
