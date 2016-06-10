@@ -49,7 +49,6 @@ class ContactDetailComponent extends React.Component {
                         <h1>{this.state.conTact.name}</h1>
                         <h3>{this.state.conTact.email}</h3>
                     </div>
-                
                 ) : (
                     <h1>I not exists</h1>
                 )}
